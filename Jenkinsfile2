@@ -6,27 +6,14 @@ pipeline{
     }
     
     stages{
-        stage('sonarqube scan'){
-        steps {
-            withSonarQubeEnv('sonarserver'){
-            sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kizoka13_week16-code'
-            //sh 'mvn sonar:sonar'
-            }
-          }
-        }
+        
     
         stage('all maven commands'){
             steps{
                 sh 'mvn clean test compile install package'
             
             }
-        }
-        stage('upload artifact'){
-            steps{
-                sh 'curl -uadmin:AP5iaA335pTzAyuonwEeQJR5cA2 -T\
-                 target/bio*.jar\
-                "http://54.243.5.178:8081/artifactory/geoapp/"'
-            }
+        
         }
     }
 }
