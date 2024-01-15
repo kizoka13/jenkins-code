@@ -1,5 +1,6 @@
 pipeline{
     agent any
+    
     tools{
         maven 'M2_HOME'
     }
@@ -7,8 +8,9 @@ pipeline{
     stages{
         stage('sonarqube scan'){
         steps {
-            withSonarQtbeEnv('sonarserver'){
-            sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kserge2001_week16-code'
+            withSonarQubeEnv('sonarserver'){
+            //sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kserge2001_week16-code'
+            sh 'sonar:sonar'
             }
         }
     }
