@@ -4,8 +4,10 @@ pipeline {
         maven 'M2_HOME'
     }
     }
+    stages{
         stage('all maven commands'){
             steps{
                 sh 'mvn clean test compile install package'
             }
         }
+    }
