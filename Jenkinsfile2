@@ -12,6 +12,7 @@ pipeline{
             sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kizoka13_week16-code'
             //sh 'mvn sonar:sonar'
             }
+          }
         }
     
         stage('all maven commands'){
