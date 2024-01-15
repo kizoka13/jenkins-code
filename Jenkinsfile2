@@ -1,13 +1,10 @@
-pipeline {
-    agent any 
-    tools {
-        maven 'M2_HOME'
-    }
-}
+pipeline{
+    agent any
     stages{
-        stage('all maven commands'){
+        satge('maven commands'){
             steps{
-                sh 'mvn clean test compile install package'
+                sh 'mvn clean compile install package'
             }
         }
     }
+}
