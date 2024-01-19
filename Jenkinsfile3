@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        labour 'ansible'
+        label 'ansible'
     }
     stages{
         stage('check current directory'){
