@@ -42,6 +42,11 @@ pipeline{
         
                }
           }
-
-    }
-}
+        stage('docker push'){
+        steps {
+            sh 'docker tag geoapp:latest 648693116534.dkr.ecr.us-east-1.amazonaws.com/geoapp:${BUILD_ID}'
+            sh 'docker push 648693116534.dkr.ecr.us-east-1.amazonaws.com/geoapp:${BUILD_ID}'
+                 }
+              }
+          }
+      }
